@@ -17,7 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "pizza")
+@Table(name = "pizza", schema = "pizzeria")
 @EntityListeners({AuditingEntityListener.class, AuditPizzaListener.class})
 @Getter
 @Setter
@@ -37,13 +37,13 @@ public class PizzaEntity extends AuditableEntity implements Serializable {
     @Column(nullable = false, columnDefinition = "Decimal(5,2)")
     private Double price;
 
-    @Column(columnDefinition = "TINYINT")
+    @Column(columnDefinition = "SMALLINT")
     private Boolean vegetarian;
 
-    @Column(columnDefinition = "TINYINT")
+    @Column(columnDefinition = "SMALLINT")
     private Boolean vegan;
 
-    @Column(columnDefinition = "TINYINT", nullable = false)
+    @Column(columnDefinition = "SMALLINT", nullable = false)
     private Boolean available;
 
     @Override

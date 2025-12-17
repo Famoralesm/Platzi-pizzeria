@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "order_item")
+@Table(name = "order_item", schema = "pizzeria")
 @IdClass(OrderItemId.class)
 @Getter
 @Setter
@@ -31,10 +31,10 @@ public class OrderItemEntity {
     @Column(name = "id_pizza", nullable = false)
     private Integer idPizza;
 
-    @Column(nullable = false, columnDefinition = "Decimal(2,1)")
+    @Column(nullable = false, columnDefinition = "numeric(2,1)")
     private Double quantity;
 
-    @Column(nullable = false, columnDefinition = "Decimal(5,2)")
+    @Column(nullable = false, columnDefinition = "numeric(5,2)")
     private Double price;
 
     @ManyToOne
